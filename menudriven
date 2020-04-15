@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   printf("Pick a choice from 1,2,3,4 and 5:");
+   int c=0;
+   scanf("%d",&c);
+   switch(c)
+   {
+    case1:printf("Pasta\n");
+    printf("The cost of this food item is Rs 179");
+    break;
+    case2:printf("Pizza\n");
+    printf("The cost of this food item is Rs 239");
+    break;
+    case3:printf("Burger\n");
+    printf("The cost of this food item is Rs 129");
+    break;
+    case4:printf("French Fries\n");
+    printf("The cost of this food item is Rs 99");
+    break;
+    case5:printf("Sandwitch\n");
+    printf("The cost of this food item is Rs 149");
+    break;
+    default:printf("No food items matched");
+       }
+       return 0;
+}
