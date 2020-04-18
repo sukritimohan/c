@@ -1,0 +1,17 @@
+int sum(int n)
+{
+    int c;
+    int b=(int)log10(n);
+    if(b==0)
+    {
+        return(n);
+    }
+    else
+    return((n/pow(10,b))+sum(n%(int)pow(10,b)));
+}
+int main()
+{
+  int num;
+  scanf("%d",&num);
+  printf("Sum of digits is:%d",sum(num));
+}
