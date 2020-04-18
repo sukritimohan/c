@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int lcm(int n1,int n2)
+{
+  int a,b,c;
+  a=((n1>n2)?n1:n2);
+  b=((n1<n2)?n1:n2);
+  c=a%b;
+  if(c==0)
+    return(b);
+  else
+    return(lcm(b,c));
+}
+int main()
+{
+    int num1,num2;
+    scanf("%d",&num1);
+    scanf("%d",&num2);
+    printf("The lcm of %d and %d is %d",num1,num2,((num1*num2)/lcm(num1,num2)));
+}
