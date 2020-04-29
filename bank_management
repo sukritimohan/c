@@ -1,0 +1,151 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int ch,i=0,j,c,add_amt,sub_amt;
+char n[20],nullStr[20]={"\0"};
+void add_account();
+void remove_account();
+void view_account();
+void cash_transaction();
+struct record
+{
+ char name[20],acc[20];
+ int age,savings;
+};
+struct record customer[100];
+bank()
+{
+ printf("Enter 1 to add,2 to remove,3 to view account and 4 for cash transaction\n");
+ scanf("%d",&ch);
+ if(ch==1)
+ add_account();
+ if(ch==2)
+ remove_account();
+ if(ch==3)
+ view_account();
+ if(ch==4)
+ cash_transaction();
+}
+void add_account()
+{
+printf("The details of customer is:\n");
+scanf("%s",customer[i].name);
+scanf("%d",&customer[i].age);
+scanf("%s",customer[i].acc);
+scanf("%d",&customer[i].savings);
+printf("Name:%s\n",customer[i].name);
+printf("Age:%d\n",customer[i].age);
+printf("Account no:%s\n",customer[i].acc);
+printf("Savings:%d\n",customer[i].savings);
+i++;
+bank();
+}
+void remove_account()
+{
+printf("Enter name to exit account:\n");
+scanf("%s",n);
+for(j=0;j<i;j++)
+{
+if(strcmp(customer[j].name,n)==0)
+{
+continue;
+i--;
+}
+else
+{
+printf("The details of customer is:\n");
+printf("Name:%s\n",customer[j].name);
+printf("Age:%d\n",customer[j].age);
+printf("Account no:%s\n",customer[j].acc);
+printf("Savings:%d\n",customer[j].savings);
+}
+}
+bank();
+}
+void view_account()
+{
+if(i==0)
+printf("No data");
+else
+{
+for(j=0;j<i;j++)
+{
+printf("The details of customer is:\n");
+printf("Name:%s\n",customer[j].name);
+printf("Age:%d\n",customer[j].age);
+printf("Account no:%s\n",customer[j].acc);
+printf("Savings:%d\n",customer[j].savings);
+}
+}
+bank();
+}
+void cash_transaction()
+{
+printf("Enter name to add or withdraw cash:\n");
+scanf("%s",n);
+for(j=0;j<i;j++)
+{
+if(strcmp(customer[j].name,n)==0)
+{
+printf("Enter 0 to add and 1 to withdraw cash:\n");
+scanf("%d",&c);
+if(c==0)
+{
+printf("Enter amount to be added:\n");
+scanf("%d",&add_amt);
+customer[j].savings+=add_amt;
+printf("Name:%s\n",customer[j].name);
+printf("Age:%d\n",customer[j].age);
+printf("Account no:%s\n",customer[j].acc);
+printf("Savings:%d\n",customer[j].savings);
+}
+else if(c==1)
+{
+printf("Enter amount to be withdrawn:\n");
+scanf("%d",&sub_amt);
+customer[j].savings-=sub_amt;
+printf("Name:%s\n",customer[j].name);
+printf("Age:%d\n",customer[j].age);
+printf("Account no:%s\n",customer[j].acc);
+printf("Savings:%d\n",customer[j].savings);
+}
+else
+printf("Wrong input\n");
+}
+}
+bank();
+}
+int main()
+{
+int main_again,i;
+char pass[20];
+char password[20]="sukriti123";
+printf("Enter login id:\n");
+scanf("%s",pass);
+if(strcmp(password,pass)==0)
+{
+printf("Get access to system.\n");
+for(i=0;i<100;i++)
+printf(".");
+system("cls");
+bank();
+}
+else
+{
+printf("Wrong password\n");
+printf("Enter 0 to exit and 1 to re-enter password\n");
+scanf("%d",&main_again);
+if(main_again==0)
+printf("You can exit");
+else if(main_again==1)
+{
+printf("Re-enter password\n");
+for(i=0;i<100;i++)
+printf(".");
+system("cls");
+main();
+}
+else
+printf("Invalid Input");
+}
+}
