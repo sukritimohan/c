@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE *fptr1,*fptr2;
+    char ch;char st[50];int pos,i=0;
+    fptr1=fopen("C:/Users/Sukriti Mohan/Desktop/newfile.txt","r");
+    fptr2=fopen("f.txt","w");
+    fseek(fptr1,0,SEEK_END);
+    pos=ftell(fptr1);
+    while(i<pos)
+    {
+       i++;
+       fseek(fptr1,-i,SEEK_END);
+       ch=fgetc(fptr1);
+       putc(ch,fptr2);
+    }
+    fclose(fptr1);
+    fclose(fptr2);
+}
+
+
+
