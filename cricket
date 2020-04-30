@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    FILE *fp1,*fp2,*fp3,*fp4,*fp5;
+    int choice;
+    printf("Get a look on World Cup finals 2011:\n");
+    printf("Enter 1 to know strike rate,2 to know balls,3 to know runs,4 to know finals,5 to know the extras\n");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+    case 1:
+    fp1=fopen("C:/Users/Sukriti Mohan/Desktop/sr.txt","r");
+    printf("%s",fgets(fp1));
+    fclose(fp1);
+    break;
+    case 2:
+    fp2=fopen("C:/Users/Sukriti Mohan/Desktop/balls.txt","r");
+    printf("%s",fgets(fp2));
+    fclose(fp2);
+    break;
+    case 3:
+    fp3=fopen("C:/Users/Sukriti Mohan/Desktop/runs.txt","r");
+    printf("%s",fgets(fp3));
+    fclose(fp3);
+    break;
+    case 4:
+    fp4=fopen("C:/Users/Sukriti Mohan/Desktop/finals.txt","r");
+    printf("%s",fgets(fp4));
+    fclose(fp4);
+    break;
+     case 5:
+    fp5=fopen("C:/Users/Sukriti Mohan/Desktop/extras.txt","r");
+    printf("%s",fgets(fp5));
+    fclose(fp5);
+    break;
+    default:
+        printf("Wrong Input");
+    }
+}
+
